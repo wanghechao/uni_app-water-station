@@ -1,0 +1,87 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "水易达"
+			}
+		},
+		{
+			"path" : "pages/menu/menu",
+			"style" : 
+			{
+				"navigationBarTitleText" : "水易达",
+				"enablePullDownRefresh" : false
+			}
+			
+		},
+		{
+			"path" : "pages/order/order",
+			"style" : 
+			{
+				"navigationBarTitleText" : "水易达",
+				"enablePullDownRefresh" : false
+				
+			}
+		},
+		{
+			"path" : "pages/user/user",
+			"style" : 
+			{
+				"navigationBarTitleText" : "水易达",
+				"enablePullDownRefresh" : false
+			}
+			
+		},
+		{
+			"path" : "pages/user_address/user_address",
+			"style" : 
+			{
+				"navigationBarTitleText" : "",
+				"enablePullDownRefresh" : false
+			}
+		},
+		{
+			"path" : "pages/order_pay/order_pay",
+			"style" : 
+			{
+				"navigationBarTitleText" : "订单详细页",
+				"enablePullDownRefresh" : false
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar": {
+		"color": "#2C405A",
+		"selectedColor": "#007aff",
+		"backgroundColor": "white",
+		"list": [
+			{
+				"pagePath": "pages/index/index",
+				"text": "首页",
+				"iconPath": "static/仓库.png"
+			},
+			{
+				"pagePath": "pages/menu/menu",
+				"text": "店铺",
+				"iconPath": "static/店铺.png"
+			},
+			{
+				"pagePath": "pages/order/order",
+				"text": "订单",
+				"iconPath": "static/备货.png"
+			},
+			{
+				"pagePath": "pages/user/user",
+				"text": "我的",
+				"iconPath":"static/用户.png"
+			}
+		]
+	}
+	
+}

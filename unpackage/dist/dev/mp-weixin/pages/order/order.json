@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "水易达",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "order-list": "../../components/order-list/order-list"
+  }
+}

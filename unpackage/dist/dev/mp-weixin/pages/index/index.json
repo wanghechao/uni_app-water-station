@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "水易达",
+  "usingComponents": {
+    "top-search": "../../components/top-search/top-search",
+    "store-list": "../../components/store-list/store-list"
+  }
+}

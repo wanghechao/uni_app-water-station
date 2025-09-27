@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "订单详细页",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "uni-section": "../../uni_modules/uni-section/components/uni-section/uni-section",
+    "uni-data-checkbox": "../../uni_modules/uni-data-checkbox/components/uni-data-checkbox/uni-data-checkbox"
+  }
+}

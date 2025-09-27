@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "水易达",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "top-search": "../../components/top-search/top-search",
+    "menu-content": "../../components/menu-content/menu-content"
+  }
+}
