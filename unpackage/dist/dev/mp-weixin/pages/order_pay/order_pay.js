@@ -18,7 +18,8 @@ const _sfc_main = {
       count: "",
       img: "",
       price: "",
-      title: ""
+      title: "",
+      store_name: ""
     });
     common_vendor.onMounted(() => {
       const instance = common_vendor.getCurrentInstance().proxy;
@@ -31,9 +32,19 @@ const _sfc_main = {
         order_data.price = price;
         order_data.title = title;
       });
-      console.log(order_data);
     });
     const total_price = common_vendor.computed(() => order_data.price * order_data.count);
+    const go_buy = () => {
+      common_vendor.index.$emit("orderPayParams", {
+        title: order_data.title,
+        price: order_data.price,
+        count: order_data.count,
+        total_price: total_price.value
+      });
+      common_vendor.index.switchTab({
+        url: "/pages/order/order"
+      });
+    };
     const radio = common_vendor.ref(0);
     const pay = [
       {
@@ -71,7 +82,8 @@ const _sfc_main = {
           localdata: pay,
           modelValue: radio.value
         }),
-        k: common_vendor.t(total_price.value)
+        k: common_vendor.t(total_price.value),
+        l: common_vendor.o(go_buy)
       };
     };
   }

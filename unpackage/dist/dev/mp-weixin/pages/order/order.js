@@ -14,7 +14,6 @@ const _sfc_main = {
     const top_nav = ["全部", "待支付", "待服务", "已完成", "已取消"];
     const active_tab = common_vendor.ref("全部");
     common_vendor.ref(0);
-    const store_name_data = common_vendor.ref("农夫水站");
     const handle_tab_click = (e) => {
       const { on_change_value } = e.currentTarget.dataset;
       active_tab.value = top_nav[on_change_value];
@@ -29,14 +28,6 @@ const _sfc_main = {
             d: common_vendor.o(handle_tab_click, idx),
             e: idx
           };
-        }),
-        b: common_vendor.f(3, (item, k0, i0) => {
-          return {
-            a: "93207a4f-0-" + i0
-          };
-        }),
-        c: common_vendor.p({
-          ["store-name"]: store_name_data.value
         })
       };
     };

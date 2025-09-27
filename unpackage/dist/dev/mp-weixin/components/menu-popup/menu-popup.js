@@ -16,7 +16,9 @@ const _sfc_main = {
   __name: "menu-popup",
   props: ["show_popup_mes"],
   setup(__props, { expose: __expose }) {
-    const { show_popup_mes } = __props;
+    const {
+      show_popup_mes
+    } = __props;
     const goods_info_pop = common_vendor.ref(null);
     const popup_data = [
       {

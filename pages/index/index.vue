@@ -52,11 +52,8 @@
 			</view>
 			
 			<view class="store-list">
-				<store-list v-for="item in store_list" @click="go_menu(item.store_name)">
-					<template #store_img><image :src="item.store_img_src" style="width: 100%; height: 100%;"></image></template>
-					<template #store_name>{{item.store_name}}</template>
-					<template #expense>{{item.store_expense}}</template>
-					<template #introduce>{{item.store_introduce}}</template>
+				<store-list  @store_click = 'get_store_name'>
+					
 				</store-list>
 			</view>
 		</view>
@@ -64,6 +61,7 @@
 </template>
 
 <script setup>
+import { ref } from 'vue';
 	
 
 const banner_list = ["../../static/首页banner.jpg" , "../../static/首页banner2.png" , "../../static/首页banner3.jpg"]
@@ -74,8 +72,8 @@ const chose_method = (e) => {
 	})
 }
 
+const get_store_name = (store_name) => {
 	
-const go_menu = (store_name) => {
 	uni.switchTab({
 		url: '/pages/menu/menu'
 	})
@@ -83,27 +81,6 @@ const go_menu = (store_name) => {
 }
 
 
-const store_list = [
-	{
-		store_img_src:"../../static/水店.jpg",
-		store_name:"农夫山泉水站",
-		store_expense:"15",
-		store_introduce:"农夫山泉股份有限公司是中国饮料20强之一,专注于研发、推广饮用天然水、果蔬汁饮料、特殊用途饮料和茶饮料等各类软饮料。"
-	},
-	{
-		store_img_src:"../../static/水店2.jpeg",
-		store_name:"百岁山水站",
-		store_expense:"11",
-		store_introduce:"农夫山泉股份有限公司是中国饮料20强之一,专注于研发、推广饮用天然水、果蔬汁饮料、特殊用途饮料和茶饮料等各类软饮料。"
-	},
-	{
-		store_img_src:"../../static/水店3.jpg",
-		store_name:"怡宝水站",
-		store_expense:"8",
-		store_introduce:"农夫山泉股份有限公司是中国饮料20强之一,专注于研发、推广饮用天然水、果蔬汁饮料、特殊用途饮料和茶饮料等各类软饮料。"
-	}
-		
-]
 </script>
 
 <style lang="scss" scoped>

@@ -1,16 +1,16 @@
 <template>
 	<view>
-		<view class="store-list" padding="0" margin="0" spacing="0">
+		<view class="store-list" padding="0" margin="0" spacing="0" v-for="item in store_list" @click="$emit('store_click' , item.store_name)">
 				<view class="list-left">
-					<slot name="store_img"></slot>
+					<image :src="item.store_img_src" style="width: 100%; height: 100%;"></image>
 				</view>
 				
 				<view class="list-right">
 					<view class="store-content">
-						<text style="font-size: 35rpx; font-weight: 600;"> <slot name="store_name">默认店名</slot></text>
-						<text style="font-size: 25rpx; color: dimgray; font-weight: 500;">人均消费：<slot name="expense">404</slot></text>
+						<text style="font-size: 35rpx; font-weight: 600;">{{item.store_name}}</text>
+						<text style="font-size: 25rpx; color: dimgray; font-weight: 500;">人均消费：{{item.store_expense}}</text>
 						<text style="font-size: 28rpx; color: darkgray; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; width: 300rpx; height: 80rpx;">
-							<slot name="introduce">店面介绍</slot>
+							{{item.store_introduce}}
 						</text>
 					</view>
 					
@@ -24,7 +24,30 @@
 </template>
 
 <script setup>
-
+import { reactive } from 'vue';
+	
+	
+	const store_list = [
+		{
+			store_img_src:"../../static/水店.jpg",
+			store_name:"农夫山泉水站",
+			store_expense:"15",
+			store_introduce:"农夫山泉股份有限公司是中国饮料20强之一,专注于研发、推广饮用天然水、果蔬汁饮料、特殊用途饮料和茶饮料等各类软饮料。"
+		},
+		{
+			store_img_src:"../../static/水店2.jpeg",
+			store_name:"百岁山水站",
+			store_expense:"11",
+			store_introduce:"农夫山泉股份有限公司是中国饮料20强之一,专注于研发、推广饮用天然水、果蔬汁饮料、特殊用途饮料和茶饮料等各类软饮料。"
+		},
+		{
+			store_img_src:"../../static/水店3.jpg",
+			store_name:"怡宝水站",
+			store_expense:"8",
+			store_introduce:"农夫山泉股份有限公司是中国饮料20强之一,专注于研发、推广饮用天然水、果蔬汁饮料、特殊用途饮料和茶饮料等各类软饮料。"
+		}
+			
+	]
 </script>
 
 <style lang="scss" scoped>
