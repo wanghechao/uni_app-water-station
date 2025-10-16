@@ -21,9 +21,9 @@
 			</view>
 
 			<!-- 右菜单栏 -->
-			<scroll-view :scroll-top="right_menu_scroll_top" scroll-y :show-scrollbar="false" class="right-menu">
+			<scroll-view :scroll-into-view="scroll_into_id" scroll-y scroll-with-animation :show-scrollbar="false" class="right-menu">
 				<!-- 商品菜单，根据左侧菜单数量来调整 -->
-				<view class="menu-content" v-for="item in right_menu_data" ref="right_menu_elemt" >
+				<view class="menu-content" v-for="(item, idx) in right_menu_data" :id="'section-' + idx">
 					<uni-card spacing="0" padding="0" :isFull="true" style="border-radius: 20rpx;" >
 						<!-- 商品菜单主标题 -->
 						<template #title>
@@ -75,8 +75,7 @@ import { onMounted, reactive, ref , watch} from 'vue';
 	const left_menu_title = ['今日特价', '山泉水专区', '怡宝专区']
 	const left_active_title = ref('今日特价')
 	
-	const right_menu_scroll_top = ref(0)
-	const right_menu_elemt = ref(null)
+const scroll_into_id = ref('section-0')
 	
 	// 监听地址变化
 	// const {address_mes} = defineProps(['address_mes'])
@@ -108,11 +107,11 @@ import { onMounted, reactive, ref , watch} from 'vue';
 	
 	
 	
-	// 左边菜单栏点击,右侧菜单栏跳转
-	const left_menu_el_click = (index) => {
-		left_active_title.value = left_menu_title[index];
-		right_menu_scroll_top.value = right_menu_elemt.value[index].$el.getBoundingClientRect().top;
-	}
+// 左边菜单栏点击,右侧菜单栏跳转
+const left_menu_el_click = (index) => {
+    left_active_title.value = left_menu_title[index];
+    scroll_into_id.value = 'section-' + index
+}
 	
 	
 	

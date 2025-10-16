@@ -1,7 +1,8 @@
 <template>
 	<view class="head-top">
-		<view class="head-top-address">
-			<uni-icons type="location" style="color: gray;">{{ store_name ? store_name : '选择地址'}}</uni-icons>
+		<view class="head-top-address" @click="goSelectAddress">
+			<uni-icons type="location" style="color: gray;"></uni-icons>
+			<view class="address-text">{{ store_name ? store_name : '选择地址'}}</view>
 			<uni-icons type="forward"></uni-icons>
 		</view>
 		<view class="head-top-search">
@@ -14,13 +15,22 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 	
 	const store_name = ref('')
 	
 	uni.$on('store_name' , (mes) => {
 		store_name.value = mes;
 	})
+
+	onMounted(() => {
+		const saved = uni.getStorageSync('selected_store_name')
+		if (saved) store_name.value = saved
+	})
+
+	const goSelectAddress = () => {
+		uni.navigateTo({ url: '/pages/address-select/address-select' })
+	}
 
 </script>
 
@@ -36,6 +46,14 @@ import { ref } from 'vue';
 			align-items: center;
 			height: 100%;
 			width: 230rpx;
+			.address-text {
+				flex: 1;
+				min-width: 0; // 让 flex 子项可收缩
+				margin: 0 8rpx;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
 		}
 		.head-top-search {
 			background-color: #cccccc;

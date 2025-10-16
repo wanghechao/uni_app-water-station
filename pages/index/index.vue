@@ -73,11 +73,14 @@ const chose_method = (e) => {
 }
 
 const get_store_name = (store_name) => {
-	
+	// 持久化选择的门店，供菜单页 onShow 判断
+	uni.setStorageSync('selected_store_name', store_name)
+	// 广播事件以便当前已挂载的组件也能即时更新显示
+	uni.$emit('store_name' , store_name)
+	// 跳转菜单页
 	uni.switchTab({
 		url: '/pages/menu/menu'
 	})
-	uni.$emit('store_name' , store_name)
 }
 
 

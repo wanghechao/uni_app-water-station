@@ -50,15 +50,13 @@
 	
 
 	// 从首页进来时,查看是选择自提还是外送方式
-	onShow(() => {
+    onShow(() => {
+        const method_vlaue = uni.getStorageSync('deliver_method')
+        active_method_btn.value = method_vlaue;
 
-		const method_vlaue = uni.getStorageSync('deliver_method')
-		active_method_btn.value = method_vlaue;
-		
-		// if(uni.getStorageSync('user_address')) {
-		// 	user_address.value = uni.getStorageSync('user_address');
-		// }
-	})
+        const selectedStore = uni.getStorageSync('selected_store_name')
+        has_store.value = !!selectedStore
+    })
 
 	// 选择配送方式,切换样式
 	const active_method_btn = ref(0)

@@ -1,0 +1,36 @@
+# Dependencies
+node_modules/
+
+# UniApp build outputs
+unpackage/
+dist/
+
+# Caches / temps
+.cache/
+.temp/
+.tmp/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Local env files
+.env.local
+.env.*
+!.env.example
+
+# HBuilderX local files (keep launch.json if needed)
+.hbuilderx/*
+!.hbuilderx/launch.json
+
+# VSCode workspace state (keep if you want to share settings)
+.vscode/
+
+
